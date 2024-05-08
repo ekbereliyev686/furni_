@@ -14,4 +14,10 @@ urlpatterns = [
     path('cart',views.cart,name='cart'),
     path('checkout',views.checkout,name='checkout'),
     path('thankyou',views.thankyou,name='thankyou'),
+    path('test',views.test,name='test'),
+
+    path('content',views.content,name='content'),
+
 ]
+
+

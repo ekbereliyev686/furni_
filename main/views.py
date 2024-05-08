@@ -1,14 +1,17 @@
 from django.shortcuts import render
+from .models import Product,Tag
 
-# Create your views here.
-from django.shortcuts import render
 
 def index(request):
     return render(request,'index.html')
 
 
 def shop(request):
-    return render(request,'shop.html')
+    product=Product.objects.all()
+    context={
+        'product':product
+    }
+    return render(request,'shop.html',context)
 
 
 def about(request):
@@ -25,7 +28,11 @@ def contact(request):
 
 
 def blog(request):
-    return render(request,'blog.html')
+    product=Product.objects.all()
+    context={
+        'product':product
+    }
+    return render(request,'blog.html',context)
 
 
 def cart(request):
@@ -38,3 +45,24 @@ def checkout(request):
 
 def thankyou(request):
     return render(request,'thankyou.html')
+
+
+
+def content(request):
+    
+    context={
+        'data':'salam'
+            }
+    return render(request,'content.html',context)
+
+
+def test(request):
+    data=''
+    if request.method=="POST":
+        data = request.POST['soz']
+
+    context={
+        'data':data
+    }
+
+    return render(request,"test.html",context)
